@@ -1,0 +1,563 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:#fafbfc;
+  color:#1f2937;
+}
+
+.wrap{
+  padding:20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* SECTION LABEL */
+.section-label{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:#6b7280;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+/* LEGEND */
+.legend{
+  display:flex;
+  gap:20px;
+  margin-bottom:16px;
+}
+.leg-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:#4b5563;
+}
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  flex:0 0 auto;
+}
+.dot.rec{background:#1D9E75}
+.dot.comp{background:#7F77DD}
+
+/* FUNNEL */
+.funnel-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:6px;
+}
+
+.fbox{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:14px 16px;
+  background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  transition:all .2s ease;
+}
+.fbox:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+
+.fbox.comp{border-left:4px solid #7F77DD}
+.fbox.rec{border-left:4px solid #1D9E75}
+
+.fnum{
+  font-size:22px;
+  font-weight:600;
+  line-height:1.1;
+}
+.flabel{
+  font-size:12px;
+  color:#6b7280;
+  margin-top:4px;
+}
+
+/* CONNECTOR */
+.connector{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin:6px 0;
+}
+.conn-line{
+  text-align:center;
+  font-size:11px;
+  color:#9ca3af;
+}
+
+/* PARALLEL LABEL */
+.parallel-label{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:6px;
+}
+.pl{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:600;
+  color:#6b7280;
+}
+
+/* BRANCH */
+.branch-label{
+  font-size:11px;
+  font-weight:600;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.branch3{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  margin:12px 0;
+}
+
+.bsub{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:10px;
+  background:#fff;
+  cursor:pointer;
+  transition:.2s;
+}
+.bsub:hover{
+  background:#f9fafb;
+}
+.bsub.active{
+  border-color:#6366f1;
+  background:#eef2ff;
+}
+
+.bt{
+  font-size:13px;
+  font-weight:600;
+  margin-top:2px;
+}
+.bv{
+  font-size:11px;
+  color:#6b7280;
+  margin-top:2px;
+}
+
+/* BADGES */
+.badge{
+  display:inline-block;
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:6px;
+  margin-bottom:6px;
+}
+.badge.nr{background:#E1F5EE;color:#065f46}
+.badge.px{background:#EEF2FF;color:#3730a3}
+.badge.both{background:#FFF7ED;color:#9a3412}
+
+/* PANEL */
+.cohort-panel{
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:16px;
+  margin-top:14px;
+  background:#fff;
+  display:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.cohort-panel.show{display:block}
+
+.coh-title{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+/* METRICS */
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.mcard{
+  background:#f9fafb;
+  border-radius:10px;
+  padding:10px;
+  text-align:center;
+}
+.mv{
+  font-size:18px;
+  font-weight:600;
+  line-height:1.15;
+}
+.ml{
+  font-size:11px;
+  color:#6b7280;
+  margin-top:2px;
+}
+
+/* TP CARDS */
+.tp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:10px;
+}
+.tp-card{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:12px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.tpt{
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:2px;
+}
+
+/* ROWS INSIDE TP CARDS */
+.tp-row{
+  display:grid;
+  grid-template-columns: 1fr auto auto;
+  align-items:center;
+  gap:8px;
+}
+.tp-k{
+  font-size:12px;
+  color:#6b7280;
+}
+.tp-v{
+  font-size:12px;
+  font-weight:600;
+  color:#111827;
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* BARS */
+.bar-outer{
+  background:#e5e7eb;
+  border-radius:3px;
+  height:5px;
+  flex:1;
+  margin:0 6px;
+}
+.bar-fill{
+  height:5px;
+  border-radius:3px;
+}
+.bar-rec{background:#1D9E75}
+.bar-comp{background:#7F77DD}
+
+/* TABLE */
+.freq-table{
+  width:100%;
+  font-size:12px;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+.freq-table th{
+  text-align:left;
+  padding:6px;
+  color:#6b7280;
+  border-bottom:1px solid #e5e7eb;
+}
+.freq-table td{
+  padding:6px;
+  border-bottom:1px solid #f1f5f9;
+}
+.freq-table tr:hover{
+  background:#f9fafb;
+}
+.freq-table td:not(:first-child){
+  font-weight:600;
+}
+
+/* DIVIDER */
+.section-divider{
+  border:none;
+  border-top:1px solid #e5e7eb;
+  margin:14px 0;
+}
+
+/* BEFORE AFTER */
+.before-after{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.ba-block{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:12px;
+  background:#fafafa;
+}
+.ba-title{
+  font-size:12px;
+  font-weight:600;
+  color:#6b7280;
+  margin-bottom:10px;
+}
+</style>
+
+<div class="wrap">
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="leg-item"><div class="dot comp"></div>Company</div>
+    <div class="leg-item"><div class="dot rec"></div>Recruiter</div>
+  </div>
+
+  <!-- TOP FUNNEL -->
+  <div class="section-label">Top funnel</div>
+
+  <div class="parallel-label">
+    <div class="pl"><div class="dot comp"></div>Company</div>
+    <div class="pl"><div class="dot rec"></div>Recruiter</div>
+  </div>
+
+  <div class="funnel-row">
+    <div class="fbox comp"><div class="fnum">998</div><div class="flabel">≥1 search</div></div>
+    <div class="fbox rec"><div class="fnum">15,395</div><div class="flabel">≥1 search</div></div>
+  </div>
+  <div class="connector"><div class="conn-line">▼ −0.8%</div><div class="conn-line">▼ −42.3%</div></div>
+  <div class="funnel-row">
+    <div class="fbox comp"><div class="fnum">990</div><div class="flabel">≥1 search ≥30 LPA</div></div>
+    <div class="fbox rec"><div class="fnum">8,883</div><div class="flabel">≥1 search ≥30 LPA</div></div>
+  </div>
+
+  <hr class="section-divider">
+  <div class="branch-label">Split of ≥30 LPA searchers into 3 mutually inclusive cohorts</div>
+  <div class="branch3">
+    <div class="bsub" id="btn-nr" onclick="showCohort('nr')">
+      <div><span class="badge nr">Only Normal Resdex</span></div>
+      <div class="bt">5,566 rec</div>
+      <div class="bv">881 companies</div>
+    </div>
+    <div class="bsub" id="btn-px" onclick="showCohort('px')">
+      <div><span class="badge px">Only PremX</span></div>
+      <div class="bt">1,170 rec</div>
+      <div class="bv">— companies</div>
+    </div>
+    <div class="bsub" id="btn-both" onclick="showCohort('both')">
+      <div><span class="badge both">Both</span></div>
+      <div class="bt">2,147 rec</div>
+      <div class="bv">739 companies</div>
+    </div>
+  </div>
+
+  <!-- COHORT: Only Normal Resdex -->
+  <div class="cohort-panel" id="panel-nr">
+    <div class="coh-title">Cohort — Only Normal Resdex</div>
+    <div class="metric-grid">
+      <div class="mcard"><div class="mv">55,807</div><div class="ml">Searches</div></div>
+      <div class="mcard"><div class="mv">24,167</div><div class="ml">w/ Action (43%)</div></div>
+      <div class="mcard"><div class="mv">58,699</div><div class="ml">CV views</div></div>
+      <div class="mcard"><div class="mv">13,174</div><div class="ml">CV downloads</div></div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div style="font-size:12px;font-weight:500;color:#6b7280;margin-bottom:6px">Touchpoint coverage</div>
+    <div class="tp-grid">
+      <div class="tp-card">
+        <div class="tpt">No touchpoint</div>
+        <div class="tp-row">
+          <span class="tp-k">Rec</span>
+          <div class="bar-outer"><div class="bar-fill bar-rec" style="width:35%"></div></div>
+          <span class="tp-v">1,969</span>
+        </div>
+        <div class="tp-row">
+          <span class="tp-k">Comp</span>
+          <div class="bar-outer"><div class="bar-fill bar-comp" style="width:69%"></div></div>
+          <span class="tp-v">604</span>
+        </div>
+      </div>
+
+      <div class="tp-card">
+        <div class="tpt">≥1 touchpoint</div>
+        <div class="tp-row">
+          <span class="tp-k">Rec</span>
+          <div class="bar-outer"><div class="bar-fill bar-rec" style="width:65%"></div></div>
+          <span class="tp-v">3,597</span>
+        </div>
+        <div class="tp-row">
+          <span class="tp-k">Comp</span>
+          <div class="bar-outer"><div class="bar-fill bar-comp" style="width:91%"></div></div>
+          <span class="tp-v">798</span>
+        </div>
+      </div>
+
+      <div class="tp-card">
+        <div class="tpt">Coverage rate</div>
+        <div class="tp-row">
+          <span class="tp-k">Rec</span>
+          <div class="bar-outer"><div class="bar-fill bar-rec" style="width:65%"></div></div>
+          <span class="tp-v">64.6%</span>
+        </div>
+        <div class="tp-row">
+          <span class="tp-k">Comp</span>
+          <div class="bar-outer"><div class="bar-fill bar-comp" style="width:91%"></div></div>
+          <span class="tp-v">90.6%</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div style="font-size:12px;font-weight:500;color:#6b7280;margin-bottom:6px">Touchpoint type → users → engagement</div>
+    <div class="tp-grid">
+      <div class="tp-card" style="border-left:2.5px solid #1D9E75">
+        <div class="tpt">Only Banner</div>
+        <div class="tp-row"><span class="tp-k">Rec</span><span class="tp-v">1,062</span></div>
+        <div class="tp-row"><span class="tp-k">Comp</span><span class="tp-v">422</span></div>
+        <div class="tp-row"><span class="tp-k">Banner views</span><span class="tp-v">14,305</span></div>
+        <div class="tp-row"><span class="tp-k">Avg views/rec</span><span class="tp-v">13.5×</span></div>
+      </div>
+
+      <div class="tp-card" style="border-left:2.5px solid #7F77DD">
+        <div class="tpt">Only Search Form</div>
+        <div class="tp-row"><span class="tp-k">Rec</span><span class="tp-v">1,723</span></div>
+        <div class="tp-row"><span class="tp-k">Comp</span><span class="tp-v">550</span></div>
+        <div class="tp-row"><span class="tp-k">Form visits</span><span class="tp-v">4,230</span></div>
+        <div class="tp-row"><span class="tp-k">Avg visits/rec</span><span class="tp-v">2.5×</span></div>
+      </div>
+
+      <div class="tp-card" style="border-left:2.5px solid #BA7517">
+        <div class="tpt">Both</div>
+        <div class="tp-row"><span class="tp-k">Rec</span><span class="tp-v">812</span></div>
+        <div class="tp-row"><span class="tp-k">Comp</span><span class="tp-v">400</span></div>
+        <div class="tp-row"><span class="tp-k">Search form</span><span class="tp-v">1,655</span></div>
+        <div class="tp-row"><span class="tp-k">Banner views</span><span class="tp-v">11,881</span></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div style="font-size:12px;font-weight:500;color:#6b7280;margin-bottom:6px">Search frequency breakdown (by # searches/recruiter)</div>
+    <table class="freq-table">
+      <thead>
+        <tr>
+          <th>Searches/rec</th>
+          <th>Recruiters</th>
+          <th>Searches</th>
+          <th>w/ Action</th>
+          <th>CV Views</th>
+          <th>CV Downloads</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>1,370</td><td>1,370</td><td>558</td><td>1,028</td><td>266</td></tr>
+        <tr><td>2</td><td>787</td><td>1,574</td><td>615</td><td>1,363</td><td>301</td></tr>
+        <tr><td>3</td><td>516</td><td>1,548</td><td>590</td><td>1,208</td><td>303</td></tr>
+        <tr><td>3–5</td><td>704</td><td>3,119</td><td>1,220</td><td>2,867</td><td>676</td></tr>
+        <tr><td>5–10</td><td>870</td><td>6,610</td><td>2,692</td><td>6,789</td><td>1,765</td></tr>
+        <tr><td>10–20</td><td>647</td><td>9,620</td><td>4,296</td><td>11,555</td><td>2,649</td></tr>
+        <tr style="background:#f9fafb"><td>&gt;20</td><td>672</td><td>31,966</td><td>14,196</td><td>33,889</td><td>7,214</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COHORT: Only PremX -->
+  <div class="cohort-panel" id="panel-px">
+    <div class="coh-title">Cohort — Only PremX</div>
+    <div class="metric-grid">
+      <div class="mcard"><div class="mv">4,715</div><div class="ml">Searches</div></div>
+      <div class="mcard"><div class="mv">1,051</div><div class="ml">w/ Action (22%)</div></div>
+      <div class="mcard"><div class="mv">3,519</div><div class="ml">CV views</div></div>
+      <div class="mcard"><div class="mv">592</div><div class="ml">CV downloads</div></div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div style="font-size:12px;font-weight:500;color:#6b7280;margin-bottom:6px">Search frequency breakdown</div>
+    <table class="freq-table">
+      <thead>
+        <tr>
+          <th>Searches/rec</th>
+          <th>Recruiters</th>
+          <th>Searches</th>
+          <th>w/ Action</th>
+          <th>CV Views</th>
+          <th>CV Downloads</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>422</td><td>422</td><td>54</td><td>196</td><td>60</td></tr>
+        <tr><td>2</td><td>248</td><td>496</td><td>70</td><td>290</td><td>65</td></tr>
+        <tr><td>3</td><td>134</td><td>402</td><td>73</td><td>229</td><td>33</td></tr>
+        <tr><td>3–5</td><td>154</td><td>678</td><td>128</td><td>364</td><td>59</td></tr>
+        <tr><td>5–10</td><td>131</td><td>964</td><td>210</td><td>779</td><td>91</td></tr>
+        <tr><td>10–20</td><td>58</td><td>837</td><td>264</td><td>840</td><td>168</td></tr>
+        <tr style="background:#f9fafb"><td>&gt;20</td><td>23</td><td>916</td><td>252</td><td>821</td><td>116</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COHORT: Both -->
+  <div class="cohort-panel" id="panel-both">
+    <div class="coh-title">Cohort — Both (Normal Resdex + PremX)</div>
+    <div style="font-size:11px;color:#9ca3af;margin-bottom:10px">Timeline split: before vs after first PremX visit</div>
+
+    <div class="before-after">
+      <div class="ba-block">
+        <div class="ba-title">Before first PremX visit (Normal Resdex only)</div>
+        <div class="metric-grid" style="grid-template-columns:1fr 1fr">
+          <div class="mcard"><div class="mv">8,000</div><div class="ml">Searches</div></div>
+          <div class="mcard"><div class="mv">3,355</div><div class="ml">w/ Action (42%)</div></div>
+          <div class="mcard"><div class="mv">8,510</div><div class="ml">CV views</div></div>
+          <div class="mcard"><div class="mv">2,081</div><div class="ml">CV downloads</div></div>
+        </div>
+      </div>
+
+      <div class="ba-block" style="border-left:2.5px solid #e5e7eb">
+        <div class="ba-title">After first PremX visit</div>
+        <div style="font-size:11px;font-weight:500;color:#085041;margin-bottom:4px">Normal Resdex (continued)</div>
+        <div class="metric-grid" style="grid-template-columns:1fr 1fr;margin-bottom:8px">
+          <div class="mcard"><div class="mv">21,175</div><div class="ml">Searches</div></div>
+          <div class="mcard"><div class="mv">9,316</div><div class="ml">w/ Action (44%)</div></div>
+          <div class="mcard"><div class="mv">22,683</div><div class="ml">CV views</div></div>
+          <div class="mcard"><div class="mv">6,528</div><div class="ml">CV downloads</div></div>
+        </div>
+
+        <div style="font-size:11px;font-weight:500;color:#3C3489;margin-bottom:4px">PremX activity</div>
+        <div class="metric-grid" style="grid-template-columns:1fr 1fr">
+          <div class="mcard"><div class="mv">17,457</div><div class="ml">Searches</div></div>
+          <div class="mcard"><div class="mv">5,844</div><div class="ml">w/ Action (33%)</div></div>
+          <div class="mcard"><div class="mv">22,610</div><div class="ml">CV views</div></div>
+          <div class="mcard"><div class="mv">5,459</div><div class="ml">CV downloads</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showCohort(id){
+  ['nr','px','both'].forEach(k=>{
+    const panel = document.getElementById('panel-'+k);
+    const btn = document.getElementById('btn-'+k);
+    if (panel) panel.classList.remove('show');
+    if (btn) btn.classList.remove('active');
+  });
+
+  const panel=document.getElementById('panel-'+id);
+  const btn=document.getElementById('btn-'+id);
+
+  if (panel) panel.classList.add('show');
+  if (btn) btn.classList.add('active');
+
+  if (panel) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
