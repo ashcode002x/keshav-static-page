@@ -118,10 +118,10 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fafbfc;col
   </div>
 
   <hr class="section-divider">
-
+  <div class="branch-label">Split of ≥30 LPA searchers into 3 mutually inclusive cohorts</div>
   <div class="branch3">
     <div class="bsub active" id="btn-nr" onclick="showCohort('nr')">
-      <span class="badge nr">Only NR</span>
+      <span class="badge nr">Only Normal Resdex</span>
       <div class="bt">3,278 rec</div>
       <div class="bv">199 comp</div>
     </div>
@@ -141,13 +141,13 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fafbfc;col
 
   <!-- NR -->
   <div class="cohort-panel show" id="panel-nr">
-    <div class="coh-title">Only NR</div>
+    <div class="coh-title">Cohort — Only Normal Resdex</div>
 
     <div class="metric-grid">
       <div class="mcard"><div class="mv">31,922</div><div class="ml">Searches</div></div>
-      <div class="mcard"><div class="mv">13,296</div><div class="ml">Action</div></div>
-      <div class="mcard"><div class="mv">30,328</div><div class="ml">Views</div></div>
-      <div class="mcard"><div class="mv">8,242</div><div class="ml">Downloads</div></div>
+      <div class="mcard"><div class="mv">13,296</div><div class="ml">w/ Action</div></div>
+      <div class="mcard"><div class="mv">30,328</div><div class="ml">CV Views</div></div>
+      <div class="mcard"><div class="mv">8,242</div><div class="ml">CV Downloads</div></div>
     </div>
 
     <hr class="section-divider">
@@ -203,9 +203,9 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fafbfc;col
     </div>
 
     <hr class="section-divider">
-
+    <div style="font-size:12px;font-weight:500;color:#6b7280;margin-bottom:6px">Search frequency breakdown </div>
     <table class="freq-table">
-      <tr><th>Bucket</th><th>Rec</th><th>Search</th><th>Actioned Search</th><th>Views</th><th>CV Download</th></tr>
+      <tr><th>Bucket</th><th>Rec</th><th>Search</th><th>w/ Action</th><th>CV Views</th><th>CV Download</th></tr>
       <tr><td>1</td><td>824</td><td>824</td><td>316</td><td>549</td><td>118</td></tr>
       <tr><td>2</td><td>520</td><td>1040</td><td>372</td><td>713</td><td>173</td></tr>
       <tr><td>3</td><td>346</td><td>1038</td><td>363</td><td>723</td><td>178</td></tr>
@@ -218,13 +218,13 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fafbfc;col
 
   <!-- PREMX -->
   <div class="cohort-panel" id="panel-px">
-    <div class="coh-title">Only PremX</div>
+    <div class="coh-title">Cohort - Only PremX</div>
 
     <div class="metric-grid">
-      <div class="mcard"><div class="mv">4,087</div><div class="ml">Searches</div></div>
-      <div class="mcard"><div class="mv">976</div><div class="ml">Action</div></div>
-      <div class="mcard"><div class="mv">3,613</div><div class="ml">Views</div></div>
-      <div class="mcard"><div class="mv">602</div><div class="ml">Downloads</div></div>
+      <div class="mcard"><div class="mv">4,087</div><div class="ml">w?Searches</div></div>
+      <div class="mcard"><div class="mv">976</div><div class="ml">w/ Action</div></div>
+      <div class="mcard"><div class="mv">3,613</div><div class="ml">CV Views</div></div>
+      <div class="mcard"><div class="mv">602</div><div class="ml">CV Downloads</div></div>
     </div>
 
     <hr class="section-divider">
@@ -243,36 +243,36 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#fafbfc;col
 
   <!-- BOTH -->
   <div class="cohort-panel" id="panel-both">
-    <div class="coh-title">Both</div>
+    <div class="coh-title">Cohort - Both</div>
 
     <div class="before-after">
       <div class="ba-block">
-        <div class="ba-title">Before PremX</div>
+        <div class="ba-title">Before first PremX Visit (Normal Resdex Only)</div>
         <div class="metric-grid" style="grid-template-columns:1fr 1fr">
           <div class="mcard"><div class="mv">8,798</div><div class="ml">Searches</div></div>
-          <div class="mcard"><div class="mv">3,844</div><div class="ml">Action</div></div>
-          <div class="mcard"><div class="mv">7,921</div><div class="ml">Views</div></div>
-          <div class="mcard"><div class="mv">2,095</div><div class="ml">DL</div></div>
+          <div class="mcard"><div class="mv">3,844</div><div class="ml">w/ Action</div></div>
+          <div class="mcard"><div class="mv">7,921</div><div class="ml">CV Views</div></div>
+          <div class="mcard"><div class="mv">2,095</div><div class="ml">CV Downloads</div></div>
         </div>
       </div>
 
       <div class="ba-block">
-        <div class="ba-title">After PremX</div>
+        <div class="ba-title">After first PremX Visit</div>
 
         <div class="subhead nr">Normal Resdex</div>
         <div class="metric-grid" style="grid-template-columns:1fr 1fr">
           <div class="mcard"><div class="mv">24,518</div><div class="ml">Searches</div></div>
-          <div class="mcard"><div class="mv">10,502</div><div class="ml">Action</div></div>
-          <div class="mcard"><div class="mv">26,197</div><div class="ml">Views</div></div>
-          <div class="mcard"><div class="mv">7,140</div><div class="ml">DL</div></div>
+          <div class="mcard"><div class="mv">10,502</div><div class="ml">w/ Action</div></div>
+          <div class="mcard"><div class="mv">26,197</div><div class="ml">CV Views</div></div>
+          <div class="mcard"><div class="mv">7,140</div><div class="ml">CV Downloads</div></div>
         </div>
 
-        <div class="subhead px">PremX</div>
+        <div class="subhead px">PremX Activity</div>
         <div class="metric-grid" style="grid-template-columns:1fr 1fr">
           <div class="mcard"><div class="mv">17,477</div><div class="ml">Searches</div></div>
-          <div class="mcard"><div class="mv">6,094</div><div class="ml">Action</div></div>
-          <div class="mcard"><div class="mv">23,028</div><div class="ml">Views</div></div>
-          <div class="mcard"><div class="mv">4,247</div><div class="ml">DL</div></div>
+          <div class="mcard"><div class="mv">6,094</div><div class="ml">w/ Action</div></div>
+          <div class="mcard"><div class="mv">23,028</div><div class="ml">CV Views</div></div>
+          <div class="mcard"><div class="mv">4,247</div><div class="ml">CV Downloads</div></div>
         </div>
       </div>
     </div>
