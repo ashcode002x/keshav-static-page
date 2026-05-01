@@ -1,0 +1,256 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1rem 0}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:6px}
+.funnel-row{margin-bottom:3px}
+.fbox{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 14px;border-left:2.5px solid #1D9E75}
+.fbox .fnum{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.fbox .flabel{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.conn-line{display:flex;align-items:center;height:16px;color:var(--color-text-tertiary);font-size:11px;padding-left:18px;margin-bottom:3px}
+.branch3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0 4px}
+.bsub{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;cursor:pointer;transition:background .15s}
+.bsub:hover{background:var(--color-background-secondary)}
+.bsub.active{border-color:var(--color-border-primary);background:var(--color-background-secondary)}
+.bsub .bt{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.bsub .bv{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;margin-bottom:5px}
+.badge.nr{background:#E1F5EE;color:#085041}
+.badge.px{background:#EEEDFE;color:#3C3489}
+.badge.both{background:#FAEEDA;color:#633806}
+.panel{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-top:6px;display:none}
+.panel.show{display:block}
+.phead{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:10px}
+.mrow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.mcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px}
+.mcard .mv{font-size:17px;font-weight:500;color:var(--color-text-primary)}
+.mcard .ml{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.mrow6{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:12px}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:12px 0}
+.sub-label{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:6px}
+.tp3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.tpc{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:9px 11px}
+.tpc .tpt{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.tpr{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.tpk{font-size:11px;color:var(--color-text-secondary)}
+.tpv{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.bar-outer{background:var(--color-border-tertiary);border-radius:2px;height:4px;flex:1;margin:0 7px}
+.bar-fill{height:4px;border-radius:2px}
+.bg{background:#1D9E75}
+.note{font-size:11px;color:var(--color-text-tertiary);font-style:italic;margin-top:4px}
+.tbl{width:100%;font-size:12px;border-collapse:collapse}
+.tbl th{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-align:left;padding:4px 6px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.tbl td{padding:4px 6px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.tbl td:not(:first-child){color:var(--color-text-primary);font-weight:500}
+.tbl tr.hi{background:var(--color-background-secondary)}
+.tab-row{display:flex;gap:8px;margin-bottom:10px}
+.tab-btn{font-size:12px;padding:4px 10px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.tab-btn.on{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary)}
+.ba{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:12px}
+.ba-block{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
+.ba-title{font-size:11px;font-weight:500;color:var(--color-text-tertiary);margin-bottom:8px}
+.mrow2{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:0}
+.mrow2 .mv{font-size:14px}
+.after-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sec-tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px}
+.sec-tag.nr{background:#E1F5EE;color:#085041}
+.sec-tag.px{background:#EEEDFE;color:#3C3489}
+</style>
+<div class="wrap">
+
+  <div class="sec-label">Top funnel — Recruiter track</div>
+
+  <div class="funnel-row">
+    <div class="fbox"><div class="fnum">15,756</div><div class="flabel">Recruiters with ≥1 search</div></div>
+  </div>
+  <div class="conn-line">▼ −61.7%</div>
+  <div class="funnel-row">
+    <div class="fbox"><div class="fnum">6,029</div><div class="flabel">Recruiters doing ≥1 search at ≥30 LPA</div></div>
+  </div>
+
+  <hr class="divider">
+  <div class="sec-label">Split of ≥30 LPA searchers — 3 mutually exclusive cohorts</div>
+  <div class="branch3">
+    <div class="bsub" id="btn-nr" onclick="show('nr')">
+      <div><span class="badge nr">Only Normal Resdex</span></div>
+      <div class="bt">1,100 recruiters</div>
+      <div class="bv">18.2% of ≥30 LPA</div>
+    </div>
+    <div class="bsub" id="btn-px" onclick="show('px')">
+      <div><span class="badge px">Only PremX</span></div>
+      <div class="bt">4,224 recruiters</div>
+      <div class="bv">70.1% of ≥30 LPA</div>
+    </div>
+    <div class="bsub" id="btn-both" onclick="show('both')">
+      <div><span class="badge both">Both</span></div>
+      <div class="bt">705 recruiters</div>
+      <div class="bv">11.7% of ≥30 LPA</div>
+    </div>
+  </div>
+
+  <!-- PANEL: Only Normal Resdex -->
+  <div class="panel" id="panel-nr">
+    <div class="phead">Cohort — Only Normal Resdex (1,100 recruiters)</div>
+    <div class="mrow">
+      <div class="mcard"><div class="mv">3,229</div><div class="ml">Searches</div></div>
+      <div class="mcard"><div class="mv">1,435 <span style="font-size:12px;font-weight:400;color:var(--color-text-tertiary)">(44%)</span></div><div class="ml">w/ ≥1 action</div></div>
+      <div class="mcard"><div class="mv">3,332</div><div class="ml">CV views</div></div>
+      <div class="mcard"><div class="mv">875</div><div class="ml">CV downloads</div></div>
+    </div>
+    <hr class="divider">
+    <div class="sub-label">Touchpoint coverage</div>
+    <div class="tp3">
+      <div class="tpc">
+        <div class="tpt">No touchpoint</div>
+        <div class="tpr"><span class="tpk">Recruiters</span><div class="bar-outer"><div class="bar-fill bg" style="width:86%"></div></div><span class="tpv">950</span></div>
+        <div class="note">86.4% of cohort — no exposure</div>
+      </div>
+      <div class="tpc" style="border-left:2.5px solid #1D9E75">
+        <div class="tpt">≥1 touchpoint</div>
+        <div class="tpr"><span class="tpk">Recruiters</span><div class="bar-outer"><div class="bar-fill bg" style="width:14%"></div></div><span class="tpv">150</span></div>
+        <div class="note">13.6% of cohort reached</div>
+      </div>
+      <div class="tpc">
+        <div class="tpt">Touchpoint breakdown</div>
+        <div class="tpr"><span class="tpk">Only Banner</span><span class="tpv">0</span></div>
+        <div class="tpr"><span class="tpk">Only Search Form</span><span class="tpv">150</span></div>
+        <div class="tpr"><span class="tpk">Both</span><span class="tpv">0</span></div>
+        <div class="note">100% via Search Form only</div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="sub-label">Search frequency breakdown</div>
+    <table class="tbl">
+      <thead><tr><th>Searches/rec</th><th>#Recruiters</th><th>#Searches</th><th>w/ Action</th><th>CV Views</th><th>CV Downloads</th><th>CV Views/Actioned Srch</th><th>CV Views/Search</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>540</td><td>540</td><td>255</td><td>616</td><td>154</td><td>2.42</td><td>1.14</td></tr>
+        <tr><td>2</td><td>218</td><td>436</td><td>176</td><td>397</td><td>104</td><td>2.26</td><td>0.91</td></tr>
+        <tr><td>3</td><td>100</td><td>300</td><td>116</td><td>260</td><td>52</td><td>2.24</td><td>0.87</td></tr>
+        <tr><td>3–5</td><td>112</td><td>483</td><td>236</td><td>556</td><td>164</td><td>2.36</td><td>1.15</td></tr>
+        <tr><td>5–10</td><td>83</td><td>625</td><td>260</td><td>681</td><td>183</td><td>2.62</td><td>1.09</td></tr>
+        <tr><td>10–20</td><td>39</td><td>546</td><td>282</td><td>595</td><td>185</td><td>2.11</td><td>1.09</td></tr>
+        <tr class="hi"><td>&gt;20</td><td>8</td><td>299</td><td>110</td><td>227</td><td>33</td><td>2.06</td><td>0.76</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PANEL: Only PremX -->
+  <div class="panel" id="panel-px">
+    <div class="phead">Cohort — Only PremX (4,224 recruiters)</div>
+    <div class="mrow">
+      <div class="mcard"><div class="mv">17,878</div><div class="ml">Searches</div></div>
+      <div class="mcard"><div class="mv">3,748 <span style="font-size:12px;font-weight:400;color:var(--color-text-tertiary)">(21%)</span></div><div class="ml">w/ ≥1 action</div></div>
+      <div class="mcard"><div class="mv">11,553</div><div class="ml">CV views</div></div>
+      <div class="mcard"><div class="mv">2,394</div><div class="ml">CV downloads</div></div>
+    </div>
+    <hr class="divider">
+    <div class="sub-label">Search frequency breakdown</div>
+    <table class="tbl">
+      <thead><tr><th>Searches/rec</th><th>#Recruiters</th><th>#Searches</th><th>w/ Action</th><th>CV Views</th><th>CV Downloads</th><th>CV Views/Actioned Srch</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>1,315</td><td>1,315</td><td>188</td><td>556</td><td>99</td><td>2.96</td></tr>
+        <tr><td>2</td><td>837</td><td>1,674</td><td>259</td><td>754</td><td>165</td><td>2.91</td></tr>
+        <tr><td>3</td><td>482</td><td>1,446</td><td>236</td><td>652</td><td>145</td><td>2.76</td></tr>
+        <tr><td>3–5</td><td>650</td><td>2,879</td><td>519</td><td>1,788</td><td>377</td><td>3.45</td></tr>
+        <tr><td>5–10</td><td>601</td><td>4,444</td><td>977</td><td>2,965</td><td>614</td><td>3.03</td></tr>
+        <tr><td>10–20</td><td>256</td><td>3,582</td><td>922</td><td>3,197</td><td>619</td><td>3.47</td></tr>
+        <tr class="hi"><td>&gt;20</td><td>83</td><td>2,538</td><td>647</td><td>1,641</td><td>375</td><td>2.54</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PANEL: Both -->
+  <div class="panel" id="panel-both">
+    <div class="phead">Cohort — Both Normal Resdex + PremX (705 recruiters)</div>
+
+    <div class="ba">
+      <div class="ba-block">
+        <div class="ba-title">Before first PremX visit (Normal Resdex only)</div>
+        <div class="mrow2" style="grid-template-columns:repeat(2,1fr)">
+          <div class="mcard"><div class="mv">427</div><div class="ml">Searches</div></div>
+          <div class="mcard"><div class="mv">189 <span style="font-size:11px;font-weight:400;color:var(--color-text-tertiary)">(44%)</span></div><div class="ml">w/ Action</div></div>
+          <div class="mcard" style="margin-top:5px"><div class="mv">401</div><div class="ml">CV views</div></div>
+          <div class="mcard" style="margin-top:5px"><div class="mv">132</div><div class="ml">CV downloads</div></div>
+        </div>
+      </div>
+      <div class="ba-block" style="border-left:2.5px solid var(--color-border-primary)">
+        <div class="ba-title">After first PremX visit</div>
+        <div class="after-grid">
+          <div>
+            <div class="sec-tag nr">Normal Resdex</div>
+            <div class="mrow2" style="grid-template-columns:repeat(2,1fr)">
+              <div class="mcard"><div class="mv">1,803</div><div class="ml">Searches</div></div>
+              <div class="mcard"><div class="mv">571 <span style="font-size:11px;font-weight:400;color:var(--color-text-tertiary)">(32%)</span></div><div class="ml">w/ Action</div></div>
+              <div class="mcard" style="margin-top:5px"><div class="mv">1,319</div><div class="ml">CV views</div></div>
+              <div class="mcard" style="margin-top:5px"><div class="mv">340</div><div class="ml">CV downloads</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="sec-tag px">PremX</div>
+            <div class="mrow2" style="grid-template-columns:repeat(2,1fr)">
+              <div class="mcard"><div class="mv">4,258</div><div class="ml">Searches</div></div>
+              <div class="mcard"><div class="mv">1,285 <span style="font-size:11px;font-weight:400;color:var(--color-text-tertiary)">(30%)</span></div><div class="ml">w/ Action</div></div>
+              <div class="mcard" style="margin-top:5px"><div class="mv">4,106</div><div class="ml">CV views</div></div>
+              <div class="mcard" style="margin-top:5px"><div class="mv">928</div><div class="ml">CV downloads</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <div class="sub-label">Search frequency breakdown — toggle platform</div>
+    <div class="tab-row">
+      <button class="tab-btn on" id="tab-px" onclick="switchTab('px')">PremX</button>
+      <button class="tab-btn" id="tab-nr" onclick="switchTab('nr')">Normal Resdex</button>
+    </div>
+
+    <div id="tbl-px">
+      <table class="tbl">
+        <thead><tr><th>Searches/rec</th><th>#Recruiters</th><th>#Searches</th><th>w/ Action</th><th>CV Views</th><th>CV Downloads</th><th>CV Views/Actioned Srch</th><th>CV Views/Search</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>327</td><td>327</td><td>165</td><td>297</td><td>92</td><td>1.80</td><td>0.91</td></tr>
+          <tr><td>2</td><td>151</td><td>302</td><td>112</td><td>213</td><td>59</td><td>1.90</td><td>0.71</td></tr>
+          <tr><td>3</td><td>65</td><td>195</td><td>75</td><td>117</td><td>35</td><td>1.56</td><td>0.60</td></tr>
+          <tr><td>3–5</td><td>66</td><td>295</td><td>92</td><td>147</td><td>32</td><td>1.60</td><td>0.50</td></tr>
+          <tr><td>5–10</td><td>64</td><td>479</td><td>198</td><td>564</td><td>122</td><td>2.85</td><td>1.18</td></tr>
+          <tr><td>10–20</td><td>23</td><td>310</td><td>153</td><td>397</td><td>124</td><td>2.59</td><td>1.28</td></tr>
+          <tr class="hi"><td>&gt;20</td><td>9</td><td>322</td><td>154</td><td>358</td><td>93</td><td>2.32</td><td>1.11</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tbl-nr" style="display:none">
+      <table class="tbl">
+        <thead><tr><th>Searches/rec</th><th>#Recruiters</th><th>#Searches</th><th>w/ Action</th><th>CV Views</th><th>CV Downloads</th><th>CV Views/Actioned Srch</th><th>CV Views/Search</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>267</td><td>267</td><td>96</td><td>181</td><td>47</td><td>1.89</td><td>0.68</td></tr>
+          <tr><td>2</td><td>125</td><td>250</td><td>67</td><td>147</td><td>35</td><td>2.19</td><td>0.59</td></tr>
+          <tr><td>3</td><td>58</td><td>174</td><td>54</td><td>96</td><td>38</td><td>1.78</td><td>0.55</td></tr>
+          <tr><td>3–5</td><td>57</td><td>254</td><td>49</td><td>77</td><td>21</td><td>1.57</td><td>0.30</td></tr>
+          <tr><td>5–10</td><td>49</td><td>362</td><td>109</td><td>345</td><td>55</td><td>3.17</td><td>0.95</td></tr>
+          <tr><td>10–20</td><td>19</td><td>244</td><td>94</td><td>243</td><td>76</td><td>2.59</td><td>1.00</td></tr>
+          <tr class="hi"><td>&gt;20</td><td>130</td><td>252</td><td>102</td><td>230</td><td>68</td><td>2.25</td><td>0.91</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<script>
+function show(id){
+  ['nr','px','both'].forEach(k=>{
+    document.getElementById('panel-'+k).classList.remove('show');
+    document.getElementById('btn-'+k).classList.remove('active');
+  });
+  document.getElementById('panel-'+id).classList.add('show');
+  document.getElementById('btn-'+id).classList.add('active');
+  document.getElementById('panel-'+id).scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function switchTab(t){
+  document.getElementById('tbl-px').style.display = t==='px'?'block':'none';
+  document.getElementById('tbl-nr').style.display  = t==='nr'?'block':'none';
+  document.getElementById('tab-px').className = 'tab-btn'+(t==='px'?' on':'');
+  document.getElementById('tab-nr').className = 'tab-btn'+(t==='nr'?' on':'');
+}
+</script>
